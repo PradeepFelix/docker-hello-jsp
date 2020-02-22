@@ -14,5 +14,6 @@ ADD /build/HelloWorld.war /usr/local/tomcat/webapps/HelloWorld.war
 
 
 #starting up and running the tomcat service
-#WORKDIR /usr/local/tomcat/bin
-#CMD ["./catalina.sh", "run"]
+WORKDIR /usr/local/tomcat/bin
+CMD ["./catalina.sh", "run"]
+CMD ["./startup.sh", "run"]
