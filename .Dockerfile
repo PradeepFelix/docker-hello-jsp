@@ -11,9 +11,13 @@ COPY /build/server.xml /usr/local/tomcat/conf/
 #deploying the spring application into tomcat
 ADD /build/HelloWorld.war /usr/local/tomcat/webapps/HelloWorld.war
 
+
+#starting up and running the tomcat service
+WORKDIR /usr/local/tomcat/bin
+CMD ["./catalina.sh", "run"]
+
 #Add the web.xml file to render tomcat root as the application
 ADD /build/web.xml /usr/local/tomcat/webapps/HelloWorld/WEB-INF/
-
 
 #starting up and running the tomcat service
 WORKDIR /usr/local/tomcat/bin
