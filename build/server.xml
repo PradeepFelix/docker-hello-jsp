@@ -146,7 +146,7 @@
       </Realm>
 
       <Host name="localhost"  appBase="webapps"
-            unpackWARs="true" autoDeploy="true">
+            unpackWARs="true" autoDeploy="true" deployOnStartup="true">
 			<!--<Context path="" docBase="HelloWorld"/>-->
 			<!--<Context path="/HelloWorld" docBase="HelloWorld"/>-->
 
