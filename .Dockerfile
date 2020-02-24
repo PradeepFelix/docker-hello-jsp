@@ -5,15 +5,20 @@ FROM tomcat:8.5
 ADD /build/tomcat-users.xml /usr/local/tomcat/conf/
 ADD /build/context.xml /usr/local/tomcat/webapps/manager/META-INF/
 
-#allow forward slash to launch the app
-COPY /build/server.xml /usr/local/tomcat/conf/
-
 #deploying the spring application into tomcat
 ADD /build/HelloWorld.war /usr/local/tomcat/webapps/HelloWorld.war
 
 #starting up and running the tomcat service
 WORKDIR /usr/local/tomcat/bin
-CMD ["./catalina.sh", "run"]
+CMD ["./startup.sh", "run"]
+
+#allow forward slash to launch the app
+COPY /build/server.xml /usr/local/tomcat/conf/
 
 #Add the web.xml file to render tomcat root as the application
 ADD /build/web.xml /usr/local/tomcat/webapps/HelloWorld/WEB-INF/
+
+
+#starting up and running the tomcat service
+WORKDIR /usr/local/tomcat/bin
+CMD ["./startup.sh", "run"]
