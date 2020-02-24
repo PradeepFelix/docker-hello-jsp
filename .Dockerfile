@@ -19,10 +19,6 @@ CMD ["./catalina.sh", "run"]
 #Add the web.xml file to render tomcat root as the application
 ADD /build/web.xml /usr/local/tomcat/webapps/HelloWorld/WEB-INF/
 
-#force copy of app into app directory as it is unpacking the war only to the root
-WORKDIR /usr/local/tomcat/webapps/ROOT
-cp -r * /usr/local/tomcat/webapps/HelloWorld
-
 
 #starting up and running the tomcat service
 WORKDIR /usr/local/tomcat/bin
